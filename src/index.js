@@ -3,10 +3,19 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import TodoContextProvider from './context/TodoContext'
+import ThemeContextProvider from './context/ThemeContext'
+import AuthContextProvider from './context/AuthContext'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <AuthContextProvider>
+      <TodoContextProvider>
+        <ThemeContextProvider>
+          <App />
+        </ThemeContextProvider>
+      </TodoContextProvider>
+    </AuthContextProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
